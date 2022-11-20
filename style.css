@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Architects+Daughter&family=Jura:wght@300;400;500;600;700&family=Khula:wght@300;400;600&family=Nanum+Pen+Script&family=Neucha&display=swap");
 body {
+  font-family: "Amatic SC", cursive;
   background-color: rgb(234, 232, 232);
   display: flex;
   flex-direction: column;
@@ -6,12 +8,19 @@ body {
   justify-content: flex-start;
 }
 
+h1 {
+  margin: 0px;
+  font-size: 70px;
+  font-weight: 700px;
+}
+
 .grid {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 450px;
   display: flex;
   flex-direction: column;
-  border: 10px solid red;
+  border: 10px solid rgb(116, 116, 116);
+  border-radius: 10px;
 }
 
 .row {
@@ -21,5 +30,19 @@ body {
 
 .cell {
   flex: 1;
-  border: 1px solid black;
+  border: 0.5px solid rgb(183, 183, 183);
+}
+
+.controls {
+  margin-bottom: 15px;
+}
+
+.clear-btn {
+  font-family: "Architects Daughter", cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.589);
+  width: 80px;
+  border-radius: 7px;
+  border: 1px solid rgba(99, 99, 99, 0.668);
 }
