@@ -9,26 +9,43 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <header>
-      <h1>Etch a Sketch</h1>
-    </header>
     <main>
+      <h1>Etch-a-Sketch</h1>
       <div class="controls">
         <input class="clear-btn" type="button" value="Clear" />
         <input class="erase-btn" type="button" value="Erase" />
         <input class="black-btn" type="button" value="Black" />
         <input class="rainbow-btn" type="button" value="Rainbow" />
       </div>
-      <div class="slider-container">
-        <input type="range" min="16" max="100" value="16" class="slider" />
-        <div class="slider-value">
-          <span class="slider-range">16</span>x<span class="slider-range"
-            >16</span
-          >
+
+      <div class="slider-picker-container">
+        <div class="slider-container">
+          <input type="range" min="16" max="100" value="58" class="slider" />
+          <div class="slider-value">
+            <span class="slider-range">58</span>x<span class="slider-range"
+              >58</span
+            >
+          </div>
+        </div>
+        <div class="picker-container">
+          <label for="picker">Pick color:</label>
+          <input type="color" id="picker" name="picker" value="#e66465" />
         </div>
       </div>
+
       <div class="grid"></div>
+      <footer>
+        <p>
+          Copyright © 2022
+          <a
+            href="https://github.com/RimaSem"
+            target="_blank"
+            rel="noopener noreferrer"
+            >RimaSem</a
+          >
+          for The Odin Project
+        </p>
+      </footer>
     </main>
-    <footer></footer>
   </body>
 </html>

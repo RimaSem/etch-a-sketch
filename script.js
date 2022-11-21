@@ -1,17 +1,19 @@
 const grid = document.querySelector(".grid");
 const slider = document.querySelector(".slider");
+const colorPicker = document.querySelector("#picker");
 const clearBtn = document.querySelector(".clear-btn");
 const eraseBtn = document.querySelector(".erase-btn");
 const blackBtn = document.querySelector(".black-btn");
 const rainbowBtn = document.querySelector(".rainbow-btn");
 
-createGrid(16);
+createGrid(58);
 
 clearBtn.addEventListener("click", clearGrid);
 eraseBtn.addEventListener("click", erase);
 blackBtn.addEventListener("click", selectBlack);
 rainbowBtn.addEventListener("click", selectRainbow);
 slider.addEventListener("input", selectRange);
+colorPicker.addEventListener("input", pickColor);
 
 function createGrid(size) {
   for (let i = 0; i < size; i++) {
@@ -26,15 +28,16 @@ function createGrid(size) {
 
     grid.appendChild(row);
   }
-  clearGrid();
-  selectRainbow();
-  selectBlack();
+  //clearGrid();
+  //selectRainbow();
+  //selectBlack();
 }
 
 function clearGrid() {
   const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => (cell.style.backgroundColor = "white"));
-  selectBlack();
+  erase();
+  //selectBlack();
 }
 
 function erase() {
@@ -72,6 +75,15 @@ function selectRange() {
   sliderRange.forEach((s) => (s.textContent = slider.value));
   deleteCanvas();
   createGrid(+slider.value);
+}
+
+function pickColor() {
+  const cells = document.querySelectorAll(".cell");
+  cells.forEach((cell) => {
+    cell.addEventListener("mouseover", (e) => {
+      e.target.style.backgroundColor = `${colorPicker.value}`;
+    });
+  });
 }
 
 function deleteCanvas() {
