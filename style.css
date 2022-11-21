@@ -33,7 +33,6 @@ h1 {
 
 .cell {
   flex: 1;
-  border: 0.5px solid rgb(183, 183, 183);
 }
 
 .controls {
@@ -43,7 +42,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.controls input {
+.controls input[type="button"] {
   font-family: "Architects Daughter", cursive;
   font-size: 20px;
   font-weight: 700;
@@ -54,10 +53,18 @@ h1 {
   cursor: pointer;
 }
 
-.controls input:hover {
+.controls input[type="button"]:hover {
   box-shadow: 2px 2px 10px rgb(123, 123, 123);
 }
 
-.controls input:active {
+.controls input[type="button"]:active {
   color: rgba(116, 116, 116, 0.577);
+}
+
+.slider-container {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

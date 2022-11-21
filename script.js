@@ -1,20 +1,17 @@
 const grid = document.querySelector(".grid");
+const slider = document.querySelector(".slider");
+const clearBtn = document.querySelector(".clear-btn");
+const eraseBtn = document.querySelector(".erase-btn");
+const blackBtn = document.querySelector(".black-btn");
+const rainbowBtn = document.querySelector(".rainbow-btn");
+
 createGrid(16);
 
-const cells = document.querySelectorAll(".cell");
-selectBlack();
-
-const clearBtn = document.querySelector(".clear-btn");
 clearBtn.addEventListener("click", clearGrid);
-
-const eraseBtn = document.querySelector(".erase-btn");
 eraseBtn.addEventListener("click", erase);
-
-const blackBtn = document.querySelector(".black-btn");
 blackBtn.addEventListener("click", selectBlack);
-
-const rainbowBtn = document.querySelector(".rainbow-btn");
 rainbowBtn.addEventListener("click", selectRainbow);
+slider.addEventListener("input", selectRange);
 
 function createGrid(size) {
   for (let i = 0; i < size; i++) {
@@ -29,14 +26,19 @@ function createGrid(size) {
 
     grid.appendChild(row);
   }
+  clearGrid();
+  selectRainbow();
+  selectBlack();
 }
 
 function clearGrid() {
+  const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => (cell.style.backgroundColor = "white"));
   selectBlack();
 }
 
 function erase() {
+  const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
       e.target.style.backgroundColor = "white";
@@ -45,6 +47,7 @@ function erase() {
 }
 
 function selectBlack() {
+  const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
       e.target.style.backgroundColor = "black";
@@ -53,6 +56,7 @@ function selectBlack() {
 }
 
 function selectRainbow() {
+  const cells = document.querySelectorAll(".cell");
   cells.forEach((cell) => {
     cell.addEventListener("mouseover", (e) => {
       const r = Math.floor(Math.random() * 256);
@@ -61,4 +65,19 @@ function selectRainbow() {
       e.target.style.backgroundColor = `rgb(${r},${g},${b})`;
     });
   });
+}
+
+function selectRange() {
+  const sliderRange = document.querySelectorAll(".slider-range");
+  sliderRange.forEach((s) => (s.textContent = slider.value));
+  deleteCanvas();
+  createGrid(+slider.value);
+}
+
+function deleteCanvas() {
+  const rows = document.querySelectorAll(".row");
+  const cells = document.querySelectorAll(".cell");
+
+  cells.forEach((cell) => cell.remove());
+  rows.forEach((row) => row.remove());
 }
